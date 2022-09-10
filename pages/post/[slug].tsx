@@ -10,7 +10,7 @@ const markedOpts = {
   renderer: rendererMD,
 };
 
-const Home: NextPage = ({ content }) => {
+const Home: NextPage = ({ content }: any) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -41,7 +41,7 @@ const Home: NextPage = ({ content }) => {
   )
 }
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps(ctx: any) {
   const { params } = ctx;
   const { slug } = params;
 
@@ -49,7 +49,7 @@ export async function getServerSideProps(ctx) {
   const entrys = await fetchEntry(slug);
   console.log(entrys.items[0], 'entrys');
 
-  const fieldContent = entrys?.items[0]?.fields?.content
+  const fieldContent: any = entrys?.items[0]?.fields?.content
   
   const content = marked(fieldContent, markedOpts)
 
