@@ -20,15 +20,11 @@ export default function Category({ childCategories }: CategoryProps) {
   }
 
   useEffect(() => {
-    console.log('执行 useEffect');
-    
     fetchPosts(childCategories[0].sys.id);
   }, [childCategories])
 
   async function tabChange(index: number) {
-    console.log(index, '111111111', childCategories);
     await fetchPosts(childCategories[index].sys.id)
-    console.log(currentPosts, 'currentPosts');
   }
 
   return (

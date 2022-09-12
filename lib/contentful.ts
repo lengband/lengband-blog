@@ -1,4 +1,4 @@
-import { createClient, EntryCollection, Asset, Entry } from "contentful";
+import { createClient, EntryCollection, Asset, Entry, CreateClientParams } from "contentful";
 
 export interface ITag {
   name: string;
@@ -21,15 +21,18 @@ export interface IPost {
   content?: string;
 }
 
-
-export const client = createClient({
+const clientOpts: CreateClientParams = {
   space: 'pi9scs8p64vg',
   accessToken: 'zidaOu0ZpnAY2UD6c0XlEPf96ZEMdcxY-G0VSrm-tCw',
-  // proxy: {
-  //   host: "127.0.0.1",
-  //   port: 7890,
-  // },
-});
+}
+if (process.env.NODE_ENV !== "production") {
+  clientOpts.proxy = {
+    host: "127.0.0.1",
+    port: 7890,
+  }
+}
+
+export const client = createClient(clientOpts);
 
 
 export async function fetchEntries(content_type: 'tag', limit: number): Promise<EntryCollection<ITag>>
