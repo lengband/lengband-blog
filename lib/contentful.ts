@@ -25,10 +25,10 @@ export interface IPost {
 export const client = createClient({
   space: 'pi9scs8p64vg',
   accessToken: 'zidaOu0ZpnAY2UD6c0XlEPf96ZEMdcxY-G0VSrm-tCw',
-  proxy: {
-    host: "127.0.0.1",
-    port: 7890,
-  },
+  // proxy: {
+  //   host: "127.0.0.1",
+  //   port: 7890,
+  // },
 });
 
 
