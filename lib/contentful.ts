@@ -24,6 +24,7 @@ export interface IPost {
 const clientOpts: CreateClientParams = {
   space: 'pi9scs8p64vg',
   accessToken: 'zidaOu0ZpnAY2UD6c0XlEPf96ZEMdcxY-G0VSrm-tCw',
+  environment: 'master-2022-11-15'
 }
 if (process.env.NODE_ENV !== "production") {
   clientOpts.proxy = {
